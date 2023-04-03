@@ -1,7 +1,7 @@
 #include "cryptography.h"
 
 
-aes::aes(std::vector<uint8_t> iv)
+cryptography::cryptography(std::vector<uint8_t> iv)
     : m_iv(move(iv)) {
 }
 
@@ -34,7 +34,7 @@ static void throw_if_error(int res = 1, const char* file = nullptr, uint64_t lin
 
 
 //функция шифрования
-void aes::encrypt(const std::vector<uint8_t>& key, const std::vector<uint8_t>& message, std::vector<uint8_t>& output) const {
+void cryptography::encrypt(const std::vector<uint8_t>& key, const std::vector<uint8_t>& message, std::vector<uint8_t>& output) const {
     output.resize(message.size() * AES_BLOCK_SIZE);
     int inlen = message.size();
     int outlen = 0;
@@ -59,7 +59,7 @@ void aes::encrypt(const std::vector<uint8_t>& key, const std::vector<uint8_t>& m
 }
 
 //функция расшифрования
-void aes::decrypt(const std::vector<uint8_t>& key, const std::vector<uint8_t>& message, std::vector<uint8_t>& output) const{
+void cryptography::decrypt(const std::vector<uint8_t>& key, const std::vector<uint8_t>& message, std::vector<uint8_t>& output) const{
     output.resize(message.size() * 3);
     int outlen = 0;
     size_t total_out = 0;
@@ -106,11 +106,11 @@ static std::string bytes_to_str(const std::vector<uint8_t>& bytes) {
 }
 
 // для шифрования логинов и паролей
-std::string aes::encrypt_obj(std::string key_pin, std::string message_json) {
+std::string cryptography::encrypt_obj(std::string key_pin, std::string message_json) {
     const std::string iv = "1838187512345678";
     const std::string message = message_json;
     const std::string key = key_pin.substr(0,31);
-    const aes encryptor(str_to_bytes(iv));
+    const cryptography encryptor(str_to_bytes(iv));
     std::vector<uint8_t> enc_result;
     encryptor.encrypt(str_to_bytes(key), str_to_bytes(message), enc_result);
     QByteArray result = bytes_to_base64(enc_result);
@@ -121,11 +121,11 @@ std::string aes::encrypt_obj(std::string key_pin, std::string message_json) {
 }
 
 //функция шифрования файла
-void aes::encrypt_file(std::string key_pin, std::string message_json){
+void cryptography::encrypt_file(std::string key_pin, std::string message_json){
     const std::string iv = "1838187512345678";
     const std::string message = message_json;
     const std::string key = key_pin.substr(0,31);
-    const aes encryptor(str_to_bytes(iv));
+    const cryptography encryptor(str_to_bytes(iv));
     std::vector<uint8_t> enc_result;
     encryptor.encrypt(str_to_bytes(key), str_to_bytes(message), enc_result);
     QByteArray result = bytes_to_base64(enc_result);
@@ -139,10 +139,10 @@ void aes::encrypt_file(std::string key_pin, std::string message_json){
 }
 
 //функция расшифрования файла
-std::string aes::decrypt(std::string key_pin, std::vector<uint8_t> enc_result){
+std::string cryptography::decrypt(std::string key_pin, std::vector<uint8_t> enc_result){
     const std::string iv = "1838187512345678";
     const std::string key = key_pin.substr(0,31);
-    const aes encryptor(str_to_bytes(iv));
+    const cryptography encryptor(str_to_bytes(iv));
     std::vector<uint8_t> dec_result;
     encryptor.decrypt(str_to_bytes(key), enc_result, dec_result);
     return bytes_to_str(dec_result);

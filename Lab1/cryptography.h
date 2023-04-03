@@ -79,10 +79,10 @@ public:
 };
 
 
-class aes
+class cryptography
 {
 public:
-    aes(std::vector<uint8_t> iv);
+    cryptography(std::vector<uint8_t> iv);
 
     std::vector<uint8_t> m_iv;
     void encrypt(const std::vector<uint8_t>& key, const std::vector<uint8_t>& message, std::vector<uint8_t>& output) const;

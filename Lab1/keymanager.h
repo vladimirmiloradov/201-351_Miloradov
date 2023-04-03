@@ -29,7 +29,7 @@ public:
 
 private:
     Ui::keymanager *ui;
-    aes *aes_json;
+    cryptography *aes_json;
     void cridentials(QString search_param);
     void encr_log_pass_and_file();
     QJsonArray decrypted_crid(QLineEdit* lineEdit);

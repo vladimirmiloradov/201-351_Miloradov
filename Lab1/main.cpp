@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 
     qDebug() << "current_hash_base64 = " << current_hash_base64;
     //сравниваем полученный хеш с эталонным
-    const QByteArray hash0_base64 = QByteArray("cX/n02Im1GzfJB6toNZDaJcoVP+05Qxtn33odbfAGwQ=");
+    const QByteArray hash0_base64 = QByteArray("JaUbiE0ebOPr6fIrnBtOA0slt7KwOm3gI2got2EZ/Xs=");
 
     if (current_hash_base64!=hash0_base64)
     {
