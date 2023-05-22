@@ -1,0 +1,20 @@
+﻿  Generate enclave test key
+  Creating proxy/bridge routines
+  Lab3Enclave.cpp
+  Lab3Enclave_t.c
+     Создается библиотека C:\Users\SIXTECH\Desktop\Development\Lab3\ClientApp\x64\Simulation\Lab3Enclave.lib и объект C:\Users\SIXTECH\Desktop\Development\Lab3\ClientApp\x64\Simulation\Lab3Enclave.exp
+  Lab3Enclave.vcxproj -> C:\Users\SIXTECH\Desktop\Development\Lab3\ClientApp\x64\Simulation\Lab3Enclave.dll
+  sign the enclave
+  The required memory is 0x166000.
+  Succeed.
+  <EnclaveConfiguration>
+      <ProdID>0</ProdID>
+      <ISVSVN>0</ISVSVN>
+      <StackMaxSize>0x40000</StackMaxSize>
+      <HeapMaxSize>0x100000</HeapMaxSize>
+      <TCSNum>1</TCSNum>
+      <TCSPolicy>1</TCSPolicy>
+      <DisableDebug>0</DisableDebug>
+      <MiscSelect>0</MiscSelect>
+      <MiscMask>0xFFFFFFFF</MiscMask>
+  </EnclaveConfiguration>

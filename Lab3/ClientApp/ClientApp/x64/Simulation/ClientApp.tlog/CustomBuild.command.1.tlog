@@ -1,0 +1,2 @@
+^C:\USERS\SIXTECH\DESKTOP\DEVELOPMENT\LAB3\CLIENTAPP\LAB3ENCLAVE\LAB3ENCLAVE.EDL
+"C:\Users\SIXTECH\Desktop\Development\Lab3\ClientApp\packages\Intel.SGX.SDK.2.18.100.2\build\native\\bin\win32\Release\sgx_edger8r.exe" --untrusted ".\..\Lab3Enclave\Lab3Enclave.edl" --search-path ".\..\Lab3Enclave;C:\Users\SIXTECH\Desktop\Development\Lab3\ClientApp\packages\Intel.SGX.SDK.2.18.100.2\build\native\\include"
